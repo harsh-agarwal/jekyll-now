@@ -1,6 +1,6 @@
 ---
-layout: post
-title: You're up and running!
+layout: Avi
+title: Hey...How you doing ;) 
 ---
 
 Hi,
