@@ -1,6 +1,7 @@
 ---
-layout: Avi
+layout: post
 title: Hey...How you doing....JOEY! ;) 
+date: 2017-9-12
 ---
 
 Hi,
