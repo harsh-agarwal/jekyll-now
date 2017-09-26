@@ -22,4 +22,4 @@ I am also trying to work on a social venture called Banares Dialogues along with
 
 ### Contact me
 
-[Harsh Agarwal](mailto:harsh.agarwal.eee14@itbhu.ac.in)
+[Harsh Agarwal](mailto:harsh.agarwal.eee14@itbhu.ac.in) 
