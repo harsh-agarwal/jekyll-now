@@ -3,7 +3,7 @@
 This is the repository for my personal website. I am a deep learning and computer vision enthusiast. We run a small group called DLisLife in our campus and write articles about our experiments that we perform. For the time being these articles are being hosted here by the time the website is being prepared and the group is being formulated. The group consists of the following: 
 
 - Harsh Agarwal 
-- Deeksha Kaurav 
+- Deeksha Kaurav (@Deeksha96)
 - Maneeshita Sharma 
 - Shubham Gautam 
 - Shivam Kalra 
