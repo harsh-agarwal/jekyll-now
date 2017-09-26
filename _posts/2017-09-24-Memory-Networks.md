@@ -72,4 +72,6 @@ As this [excellent post explains](https://blog.acolyer.org/2016/03/10/memory-net
 
 In essence we understood the basic working model and idea behind the implementation of a memory network. In our next post we would be looking at how _Deep Learning_ as a technique can be used to train a _memory network_ from scratch.  
 
+Written By,
 
+Harsh Agarwal and Deeksha Kaurav 
