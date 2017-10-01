@@ -51,7 +51,52 @@ _This text is elaborated around the 7 entities. It describes how their states ch
 _The core of the proposed model are entities. We take Sentence 1 (S1) as input and extract the entities it contains {Mary, bathroom}. Vectors representing the states of these entities are initialized using some pre-learned word embeddings {**Mary**, **bathroom**} and stored in a memory pool. Meanwhile, we turn S1 into a vector **S1** using an autoencoder model .Then we use the sentence vector S1 toupdate the entities’states {**Mary**,**bathroom**}. The goal is to reconstruct **S1** solely from {**Mary**, **bathroom**}. In the same way, we process the following text (S2) and its containing entities (John, hallway) until encounter a question (S3). S3 is converted into a vector **S3** following the same method that processes previous input text. Then taking **S3** as input, we retrieve related entities from the memory which now stores all the entities (Mary, bathroom, John, hallway) that appear before S3. The related entities’ states are then used to produce a feature vector. In this case, (Mary and bathroom) are related to the question and their states are used for constructing the feature vector. Note the current states of the two entities (Mary and bathroom) are different from their initial values due to S1. Based on the feature vector, we then use another neural network model to predict the answer to S3._
 _The model monitors the entities involved in text and keeps updating their states according to the input. Whenever we have a question with regard to the text, we check the states of entities and predict an answer accordingly. The proposed model comprises of 4 modules, as is shown in Fig. 1. Each module is designed for a unique purpose and together they construct the entity-based memory network model."_
 
-**To be Continued!**
+## Making the model! 
+
+<img width="456" alt="screen shot 2017-10-01 at 1 54 01 pm" src="https://user-images.githubusercontent.com/11302053/31052992-18478fe4-a6b0-11e7-9c27-58b62e88701f.png">
+
+Let’s look at the working of each module in detail:
+
+**Input module:** This module converts the sentences into a vector.  The module takes as  an input a sentence and converts it into a vector. Meanwhile, it also extracts all the entities it contains. The paper assumes that we have the entities annotated for each sentence. The question is also processed using this module. The authors of the paper used an autoencoder to convert the sentence into a vector representation.
+
+**Generalisation Module:** Every time as you are looking at new sentences there are two possible choices.
+1. _You might get some information about the existing entities_  
+2. _You might catch hold of some new entities itself._
+
+The update in entities takes place using the generalisation module. The following figure schematically shows how the module works. 
+
+<img width="499" alt="screen shot 2017-10-01 at 1 59 04 pm" src="https://user-images.githubusercontent.com/11302053/31053012-a2bc10fa-a6b0-11e7-947f-039ce75a2a67.png">
+
+For the _first choice_ discussed when it get’s _entities that are not contained in the memory pool, the model would create a new memory slot for them and initialize these slots using pre-learned word embedding._
+
+For the _second choice_ if it looks at new information about the present entities, it needs to update their state. How can that be done? The model asks _us to construct the sentence solely from its entities. So we define a function **f2** which will take one by one the entities of sentence as input and output the sentence vector (**S2**). The **f2** model is trained by comparing the output (**S2**) with **S** and minimizing the loss using stochastic gradient descent as it is trained._
+
+The equation: 
+
+<div style="text-align:center" ><img width="491" alt="screen shot 2017-10-01 at 2 38 05 pm" src="https://user-images.githubusercontent.com/11302053/31053213-1540feec-a6b6-11e7-9747-e347419b6a84.png"></div>
+
+The authors of the paper have used a [Gated Recurrent Unit](http://www.wildml.com/2015/10/recurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano/) (GRU) is used as f2 which update the sentence by taking entities as input and then entities are updated by comparing S1 and S2. This way we make sure entity contains sufficient context and information regarding the sentences being read.
+
+**Output feature module:** The output module is triggered whenever the model stumbles upon a question. It retrieves the related entities according to the question asked and retrieves the output feature. It retrieve related entities according to the input question and then produce an output feature vector accordingly.
+
+If you are a bit familiar with GRU's you will be able to make sense out of the following equations: 
+
+<div style="text-align:center" ><img width="525" alt="screen shot 2017-10-01 at 2 59 36 pm" src="https://user-images.githubusercontent.com/11302053/31053353-164c9bd6-a6b9-11e7-92bf-1880a71fc041.png"></div>
+
+Using a GRU the equations would become: 
+<div style="text-align:center" ><img width="525" alt="screen shot 2017-10-01 at 3 05 18 pm" src="https://user-images.githubusercontent.com/11302053/31053400-ec86d69e-a6b9-11e7-9b63-cd9d65a5a382.png"></div>
+
+A figure to that explains the output module: 
+
+<div style="text-align:center" ><img width="561" alt="screen shot 2017-10-01 at 3 08 00 pm" src="https://user-images.githubusercontent.com/11302053/31053412-3f4a7926-a6ba-11e7-8573-6a36b0c8da1c.png"></div>
+
+And finally 
+
+**Respone Module:** Generate the response according to the output feature vector. To generate the final answer, we use a simple neural network which takes the feature vector O as input and predict a word as output._The word with the highest probability is selected._
+
+<div style="text-align:center" ><img width="387" alt="screen shot 2017-10-01 at 3 13 31 pm" src="https://user-images.githubusercontent.com/11302053/31053459-13ad50bc-a6bb-11e7-9471-9a936d9bd5d3.png"></div>
+
+So now we understand the fundamentals behind solving an RC. We could use this or similar ideas in various other ways to come up with our own model to solve a Reading Comprehension using Neural Networks! If you have any ideas regarding the same please mail us at [DeepLearningIsLife](mailto:deeplearningislife@gmail.com)
 
 Written by,
 
