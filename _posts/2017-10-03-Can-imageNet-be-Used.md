@@ -66,7 +66,11 @@ We would be processding with choice two primarily cause that is what Ian is inte
 
 So surging ahead we have an idea that we can estimate the pose using an **unsupervised photometric loss** given we have a reasonable depth map of the target image. So now in order to establish the idea that a single network that can be used for monocular depth estimation we need to prove that **_depth features can be used for pose estimation_**. 
 
-We would be taking this experiment in our next article! 
+For proving this idea I did a very simple experiment, training a completely supervised network for depth and pose. I took a resNet 50 1by2, added a bilinear upsampling layer which increased the size of the network by 32 timees and trained this network on NYUDv2 datasets to get the deapth map. I knew i can't get goo depth maps ou of this. However definately the features that we have in the layers are depth features.Now i froze the depth network. I tapped the network from a suitable point, added a couple of FC's trained it for pose. So in essence I trained a couple of FC's for getting the pose given depth features as input. I was able to train this network reasonbly to get a pose. This experiment kind of gave me a hint that depth features can be used for pose estimation. However we need to improve significantly on the depth features, consequently it's architecture to get better architecture.
+
+TODO :  create a gist and add the link here so that one can visualise the network that was used! 
+
+So we decided to work on depth network that we would be training in a supervised manner for now to get a reasonable depth map. Further we can try working on this network to implement the ideas of Unsupervised Photometric Loss to train it for depth and pose. 
 
 Cheers, 
 Harsh Agarwal 
