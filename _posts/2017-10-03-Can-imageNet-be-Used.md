@@ -32,7 +32,48 @@ We created three layers (look into pygeometry.py):
 
 The mathematics behind it might seem very complicated. No worries, [Huangying Zhan](https://www.roboticvision.org/rv_person/huangying-zhan/) had prepared a nice documentation regarding the derivation of the formula. We will take up the proof of the SE3 Generator Layer in detail. The complete documentation can be found here. [Spatial Transformer Network Formulation by Huangying Zhan](https://drive.google.com/file/d/0B3BMdiXdDUoKTzExVVctWHB2NTYzMTNROW85a0Jpa1ZybDNJ/view?usp=sharing) 
 
-In most of our articles we would be referring to them as "HuangYing's Layer" :)  
+In most of our articles we would be referring to them as "HuangYing's Layer" :)
+
+So once we have the HuangYing's Layer we repeated the experiments dont in Learning to See by Moving, in order to sanity check our experiments. Now once we are confident our layers work we can go on to our set of experiments. 
+
+A schematic view of the network that we used is as shown: 
+
+
+
+So, you see the idea was simple enough:
+
+- Get the global features for the Src and the Tgt images
+- Concatenate the two features and pass them through a couple of FC's 
+- Get the 6 DoF's that represent the camera pose to move from Src to Tgt image
+- Use the ground truth depth of Tgt image (just for now) and the estimated pose to get the optic flow from Src to Tgt 
+- Use this optic flow to warp our Src image into Tgt image to get a warped Tgt image
+- We would be considering the photometric loss between the warped target and the ground truth target image to train. 
+
+Makes sense? 
+
+So we trained the network and following were the results: 
+
+TO-DO LIST: Add the images of the estimated pose and the warps, that we had obtained along with the training curve! This will lead to completion of this method 
+
+However, we felt we have tried late fusion as an experiment. There is a possibility that we lose to much of information. So, we wanted to try another experiment that would be based on early fusion of images and then passing that through the AlexNet, and see if we are compromising a lot by doing late fusion. 
+
+On trying it out, there was an improvement in the perfomrance of pose estimation. It was pretty imperative that we would be getting better performance using eaarly fusion. Now we are having two choices: 
+
+1. We go for depth estimation and pose estimation using two images. 
+2. We decide to go for pose estimation based on two images and depth estimation based on a single images. 
+
+We would be processding with choice two primarily cause that is what Ian is interested. A potential architecture can be designed using the first idea. And I would be taking that up some other day :) 
+
+So surging ahead we have an idea that we can estimate the pose using an **unsupervised photometric loss** given we have a reasonable depth map of the target image. So now in order to establish the idea that a single network that can be used for monocular depth estimation we need to prove that **_depth features can be used for pose estimation_**. 
+
+We would be taking this experiment in our next article! 
+
+Cheers, 
+Harsh Agarwal 
+
+
+
+
 
 
 
