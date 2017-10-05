@@ -82,7 +82,7 @@ Quantitatively on calculating the RPE for the two methods:
 |     Fusion          |   Translational           |   Rotational                |
 |:-------------------:|---------------------------|-----------------------------|
 |     Style           |    RMSE(m)                |   RMSE(degrees)             |
-|:-------------------:|:-------------------------:|:---------------------------:|              
+|                     |                           |                             |              
 |**Late**             | 0.180157                  |5.55                         |
 |**Early**            | 0.160374                  |4.99                         |
 
