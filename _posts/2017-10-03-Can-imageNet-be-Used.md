@@ -79,7 +79,7 @@ However, we felt we have tried late fusion as an experiment. There is a possibil
 
 Quantitatively on calculating the RPE for the two methods: 
 
-|Fusion Style  |Translational RMSE(m)   | Rotational RMSE (degrees)|
+|Fusion Style         |Translational RMSE(m)          | Rotational RMSE (degrees)|
 |:------------:|:----------------------:|:------------------------:|              
 |**Late**      | 0.180157               |5.55                      |
 |**Early**     | 0.160374               |4.99                      |
