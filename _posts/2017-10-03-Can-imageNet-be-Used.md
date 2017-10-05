@@ -3,24 +3,26 @@ layout: post
 title : Can ImageNet features be used for getting pose? 
 ---
 
-I did my internship under _[Prof. Ian D Reid](http://www.robots.ox.ac.uk/~ian/)_ at _University of Adelaide_, I was supposed to work on a ConvNet architecture that can give us the depth and the pose at the same time! So essentially a full-fledged vSLAM system I would say, using a Deep Learning framework. Should be possible, isn’t it? Just imagine when you were a kid you were not taught geometry and concepts of optics and vision to move around, you just started moving around, bumping, falling and eventually learning how to walk! Can we train a DeepNet with a similar idea?
+I did my internship under _[Prof. Ian D Reid](http://www.robots.ox.ac.uk/~ian/)_ at _University of Adelaide_, I was supposed to work on a ConvNet architecture that can give us the depth and the pose at the same time! So in essence a full-fledged vSLAM system, using a Deep Learning framework. Should be possible, isn’t it? Just imagine when you were a kid you were not taught geometry and concepts of optics and vision to move around, you just started moving around, bumping, falling and eventually learning how to walk! Can we train a DeepNet with a similar idea?
 
-So after reading some papers, specifically [_SFM-Net: Learning Structure and Motion from Video_](https://arxiv.org/pdf/1704.07804.pdf) and [_Unsupervised Learning of depth and Ego-Motion from Video_](https://people.eecs.berkeley.edu/~tinghuiz/projects/SfMLearner/cvpr17_sfm_final.pdf). Well, both the papers have been published by Google and have similar ideas to estimate the depth and pose. 
+So after reading some papers, specifically [_SFM-Net: Learning Structure and Motion from Video_](https://arxiv.org/pdf/1704.07804.pdf) and [_Unsupervised Learning of depth and Ego-Motion from Video_](https://people.eecs.berkeley.edu/~tinghuiz/projects/SfMLearner/cvpr17_sfm_final.pdf) I got some ideas how we could implement this idea. 
 
-The basic idea is as follows: 
+Well, both the research papers have been published by Google and have similar ideas to estimate the depth and pose. 
 
-- Two networks one for calculating the depth and other for determining the pose. 
-- They use the pose, and the depth found to get the optic flow, from src image to the target image. 
-- The flow is used to warp one image into another. 
-- The better the warp, the better was our estimate for depth and pose. 
+The basic concept followed in both the research papers is as follows: 
 
-There are significant differences, in architecture, loss and various other ideas and possibly I would be writing another post on that as well. However, primarily the story remains the same.
+- _Two networks one for calculating the depth and other for determining the pose._ 
+- _The estimated pose, and the estimated depth are used to calculate the optic flow, from src image to the target image._ 
+- _This flow is then used to warp one image into another._
+- _The better the warp, the better was our estimate of depth and pose._ 
 
-After reading several other papers and even trying some methods that have been proposed, yielding no result, Ravi and I had a significant question. **_Can we use features from ImageNet, directly or after fine-tuning, to get the pose?_** Just imagine, you are walking in a market, looking at the surrounding and forming a complete picture, you are trying to make a cogent reason about your position. So can we say that analogous to our understanding of what we are referring to “looking at the surrounding and forming a complete picture,” could be the global features that we get from ImageNet? Worth a shot! 
+There are significant differences, in architecture, loss and various other parameters however, primarily the story remains the same.
 
-Implicitly I feel the idea has been proven to work by Learning to See by Moving. In their work they train the network in a supervised manner for pose and say that the features thus obtained can be used for classification. we are kind of going the other way round.  
+After reading several other papers and even trying some methods that have been proposed, yielding no result, [Ravi Garg](https://scholar.google.co.in/citations?user=2dvDXjkAAAAJ&hl=en) and I had a significant question. **_Can we use features from ImageNet, directly or after fine-tuning, to get the pose?_** Just imagine, you are walking in the streets of a market, you tentatively get an idea of your location by cognitively understanding the complete scene as you move. So can we say that analogous to our understanding of what we are referring to “understanding the complete scene,” could be the global features that we get from ImageNet? Worth a shot! 
 
-So we started working on this, there were several steps involved to get this working. First, we need something in CAFFE to convert Depth and Pose into an optic flow that could help us in warping one image into another. This warp would assist us in creating our unsupervised loss! 
+I feel the idea that we are thinking implicitly has been proven by [Learning to See by Moving](https://arxiv.org/abs/1505.01596). In their work they train the network in a supervised manner for pose and say that the features thus obtained can be used for classification. We are going the other way round.  
+
+So we started working on establishing this idea. However, there were several steps involved before we could get this working. First, we needed something in [CAFFE](http://caffe.berkeleyvision.org/) to convert the estimated depth and the estimated pose into optic flow that could help us in warping one image into another. This warp would assist us in creating our unsupervised loss! 
 
 So we started making the layers in CAFFE. After struggling a lot with CUDA, we decided to write the layer in python, based on the implementation that has been given by Handa et al. in [GVNN](https://github.com/ankurhanda/gvnn). The GVNN library has been written in Torch, so we created an analogous Python Layer in CAFFE. 
 
