@@ -84,6 +84,13 @@ Quantitatively on calculating the RPE for the two methods:
 |**Late**      | 0.180157               |5.55                      |
 |**Early**     | 0.160374               |4.99                      |
 
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
 This was expected. definitely early fusion was expected to work better. The rotational RMSE shows a significant improvement as was expected because a small rotational error leads to a large warp error, however that's not the case with translational error. So generally if you would have noticed, when we warp images mannually, we first use the rotation just for our ease. So you see possibly decoupling the fc's and training first for rotation might help. We would consider such experiments some other time :) 
 
 Based on the above experiments we were having two choices: 
