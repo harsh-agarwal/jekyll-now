@@ -36,35 +36,62 @@ In most of our articles we would be referring to them as "HuangYing's Layer" :)
 
 So once we have the HuangYing's Layer we repeated the experiments dont in Learning to See by Moving, in order to sanity check our experiments. Now once we are confident our layers work we can go on to our set of experiments. 
 
+## Network 
+
 A schematic view of the network that we used is as shown: 
 
 <img width="861" alt="screen shot 2017-10-04 at 11 38 10 pm" src="https://user-images.githubusercontent.com/11302053/31191899-449c0138-a95d-11e7-9c48-92e8882a353e.png">
 
+## What's the plan! 
+
 So, you see the idea was simple enough:
 
-- Get the global features for the Src and the Tgt images
-- Concatenate the two features and pass them through a couple of FC's 
-- Get the 6 DoF's that represent the camera pose to move from Src to Tgt image
-- Use the ground truth depth of Tgt image (just for now) and the estimated pose to get the optic flow from Src to Tgt 
-- Use this optic flow to warp our Src image into Tgt image to get a warped Tgt image
-- We would be considering the photometric loss between the warped target and the ground truth target image to train. 
+- _Get the global features for the Src and the Tgt images_
+- _Concatenate the two features and pass them through a couple of FC's_ 
+- _Get the 6 DoF's that represent the camera pose to move from Src image to Tgt image_
+- _Use the ground truth depth of Tgt image (just for now) and the estimated pose to get the optic flow from Src to Tgt_ 
+- _Use this optic flow to warp our Src image into Tgt image to get a warped Tgt image_
+- _We would be considering the photometric loss between the warped target and the ground truth target image to train._ 
 
-Makes sense? 
+Key points: 
+
+- _We would be creating a mask as the ground truth depth map has too many holes. we don't want to consider those points in our loss calculation._ 
+
+- _For creating a training set we would be using a particular frame distance or a combination of several frame distances to get the src and the target image. Be careful we need to choose a frame distance that leads to a significan motion!Otherwise the network might learn just to predict zeros :P_
+
+- _We are finetuning the AlexNet which is initialised with the weights of ImageNet clssification features._ 
+
+## Tentative Results  
 
 So we trained the network and following were the results: 
 
 <img width="855" alt="screen shot 2017-10-04 at 11 38 34 pm" src="https://user-images.githubusercontent.com/11302053/31191992-8af9861e-a95d-11e7-8c97-a535dfb98148.png">
 
+The warp error has gone down significantly. And the average loss if we could created a perfect warp is of the order of almost 8000 (because even if we create a perfect warp there would be points that would go out of the frame and we haven't considered a mask for them!) and we have reached to a limit of almost 12000 during our training. The training curve seems to have sudden spikes possibly because of Adam used as an optimiser. As when we repeated the experiment with normal SGD (without momentum) there were no spikes, but the training was very slow. So we went on with this model!  
+
+The following figure shows a qualitative idea about the pose estimated by looking at the warp that we get from the estimated pose and the groud truth pose. Personally, I feel we can obtain better results if we could clean our data a bit and kind of enforce the loss to to give more weights to the edges! 
+
 <img width="580" alt="screen shot 2017-10-04 at 11 44 42 pm" src="https://user-images.githubusercontent.com/11302053/31192119-f1336274-a95d-11e7-8de4-d3f3f0cb605d.png"> 
 
-However, we felt we have tried late fusion as an experiment. There is a possibility that we lose to much of information. So, we wanted to try another experiment that would be based on early fusion of images and then passing that through the AlexNet, and see if we are compromising a lot by doing late fusion. 
+## Early Fusion Vs Late Fusion
 
-On trying it out, there was an improvement in the perfomrance of pose estimation. It was pretty imperative that we would be getting better performance using eaarly fusion. Now we are having two choices: 
+However, we felt we have tried late fusion as an experiment. There is a possibility that we lose too much of information. So, we wanted to try another experiment that would be based on early fusion of images and then passing that through the AlexNet, and see if we are compromising a lot by doing late fusion. 
+
+Quantitatively on calculating the RPE for the two methods: 
+
+|Fusion Style  |Translational RMSE(m)   | Rotational RMSE (degrees)|
+|:------------:|:----------------------:|:------------------------:|              
+|**Late**      | 0.180157               |5.55                      |
+|**Early**     | 0.160374               |4.99                      |
+
+This was expected. definitely early fusion was expected to work better. The rotational RMSE shows a significant improvement as was expected because a small rotational error leads to a large warp error, however that's not the case with translational error. So generally if you would have noticed, when we warp images mannually, we first use the rotation just for our ease. So you see possibly decoupling the fc's and training first for rotation might help. We would consider such experiments some other time :) 
+
+Based on the above experiments we were having two choices: 
 
 1. We go for depth estimation and pose estimation using two images. 
 2. We decide to go for pose estimation based on two images and depth estimation based on a single images. 
 
-We would be processding with choice two primarily cause that is what Ian is interested. A potential architecture can be designed using the first idea. And I would be taking that up some other day :) 
+We would be proceeding with choice two primarily cause that is what Ian was interested in, Single View Depth Estimation and a MonoSlam setup. A potential architecture can be designed using the first idea. And I would be taking that up some other day :) 
 
 So surging ahead we have an idea that we can estimate the pose using an **unsupervised photometric loss** given we have a reasonable depth map of the target image. So now in order to establish the idea that a single network that can be used for monocular depth estimation we need to prove that **_depth features can be used for pose estimation_**. 
 
