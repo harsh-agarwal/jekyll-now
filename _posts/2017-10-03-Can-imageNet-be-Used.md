@@ -38,7 +38,7 @@ So once we have the HuangYing's Layer we repeated the experiments dont in Learni
 
 A schematic view of the network that we used is as shown: 
 
-
+<img width="861" alt="screen shot 2017-10-04 at 11 38 10 pm" src="https://user-images.githubusercontent.com/11302053/31191899-449c0138-a95d-11e7-9c48-92e8882a353e.png">
 
 So, you see the idea was simple enough:
 
@@ -53,7 +53,9 @@ Makes sense?
 
 So we trained the network and following were the results: 
 
-TO-DO LIST: Add the images of the estimated pose and the warps, that we had obtained along with the training curve! This will lead to completion of this method 
+<img width="855" alt="screen shot 2017-10-04 at 11 38 34 pm" src="https://user-images.githubusercontent.com/11302053/31191992-8af9861e-a95d-11e7-8c97-a535dfb98148.png">
+
+<img width="580" alt="screen shot 2017-10-04 at 11 44 42 pm" src="https://user-images.githubusercontent.com/11302053/31192119-f1336274-a95d-11e7-8de4-d3f3f0cb605d.png"> 
 
 However, we felt we have tried late fusion as an experiment. There is a possibility that we lose to much of information. So, we wanted to try another experiment that would be based on early fusion of images and then passing that through the AlexNet, and see if we are compromising a lot by doing late fusion. 
 
