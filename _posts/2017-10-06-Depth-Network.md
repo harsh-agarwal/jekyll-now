@@ -31,4 +31,6 @@ The equivalent form of the above loss function can be thought of as:
 
 $$D(y,y^*) = \frac{1}{2n^2}\sum_{i,j}((\log y_i - \log y_j)-(\log y^*_i -\log y^*_j))^2$$
 
+using $$d_i = \log y_i - \log y^*_i$$ to be the difference between the prediction and the ground truth at pixel $$i$$
+
 
