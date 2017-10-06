@@ -27,4 +27,8 @@ $$D(y,y^*) = \frac{1}{2n}\sum_{i=1}^{n}(\log(y_i) - \log(y^*_i) + \alpha(y,y^*))
 
 where $$\alpha(y,y^*) = \sum_i(\log(y^*_i) - \log(y_i))$$
 
+The equivalent form of the above loss function can be thought of as: 
+
+$$D(y,y^*) = \frac{1}{2n^2}\sum_{i,j}((\log y_i - \log y_j)-(\log y^*_i -\log y^*_j))^2$$
+
 
