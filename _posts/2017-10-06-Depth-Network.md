@@ -50,7 +50,7 @@ $$\implies D(y,y^*) = \frac{1}{n}\sum_i d^2_i - \frac{1}{n^2}(\sum_i d_i)^2$$
 
 Again, as the paper says:
 
->relates the metric to the original $l_2$ error, but with an additional term, $-\frac{1}{n^2}\sum_{i,j}d_id_j$ , that credits mistakes if they are in the same direction and penalizes them if they oppose. Thus, an imperfect prediction will have lower error when its mistakes are consistent with one another. The final equation rewrites this as a linear-time computation.
+>The last formulation relates the error metric to the original $l_2$ error, but with an additional term, $-\frac{1}{n^2}\sum_{i,j}d_id_j$ , that credits mistakes if they are in the same direction and penalizes them if they oppose. Thus, an imperfect prediction will have lower error when its mistakes are consistent with one another. The final equation rewrites the formulation so as to perform the operation in a linear-time computation.
 
 
 
