@@ -23,6 +23,6 @@ And we wanted to work on NYUDv2. So, as Ravi's network (it is kind of a traditio
 
 In NIPS 2014 [Depth Map Prediction from a Single Image using a Multi-Scale Deep Network](https://papers.nips.cc/paper/5539-depth-map-prediction-from-a-single-image-using-a-multi-scale-deep-network.pdf) by Eigen et al. proposed a scale invariant error. The following was the loss function proposed:    
 
-$$\x_t$$ 
+$$x_t$$ 
 
 
