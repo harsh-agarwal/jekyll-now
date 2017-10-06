@@ -33,15 +33,15 @@ $$D(y,y^*) = \frac{1}{2n^2}\sum_{i,j}((\log y_i - \log y_j)-(\log y^*_i -\log y^
 
 using $$d_i = \log y_i - \log y^*_i$$ to be the difference between the prediction and the ground truth at pixel $$i$$ we can write:
 
-$$
-D(y,y^*) = \frac{1}{2n^2}\sum_{i,j}(d_i - d_j)^2
-\implies D(y,y^*) = \frac{1}{2n^2}\sum_{i,j}(d^2_i + d^2_j - 2d_id_j)
-\implies D(y,y^*) = \frac{1}{2n^2}\sum_{i}\sum_{j}(d^2_i + d^2_j - 2d_id_j)
-\implies D(y,y^*) = \frac{1}{2n^2}\sum_{i}(nd^2_i + \sum_jd^2_j - \sum_j2d_id_j)
-\implies D(y,y^*) = \frac{1}{2n^2}(n\sum_{i}d^2_i + n\sum_jd^2_j - \sum_i\sum_j2d_id_j)
-\implies D(y,y^*) = \frac{2n}{2n^2}\sum_i d^2_i - \frac{1}{n^2}\sum_{i,j}d_id_j
-\implies D(y,y^*) = \frac{1}{n}\sum_i d^2_i - \frac{1}{n^2}(\sum_i d_i)^2
-$$
+
+$$D(y,y^*) = \frac{1}{2n^2}\sum_{i,j}(d_i - d_j)^2$$
+$$\implies D(y,y^*) = \frac{1}{2n^2}\sum_{i,j}(d^2_i + d^2_j - 2d_id_j)$$
+$$\implies D(y,y^*) = \frac{1}{2n^2}\sum_{i}\sum_{j}(d^2_i + d^2_j - 2d_id_j)$$
+$$\implies D(y,y^*) = \frac{1}{2n^2}\sum_{i}(nd^2_i + \sum_jd^2_j - \sum_j2d_id_j)$$
+$$\implies D(y,y^*) = \frac{1}{2n^2}(n\sum_{i}d^2_i + n\sum_jd^2_j - \sum_i\sum_j2d_id_j)$$
+$$\implies D(y,y^*) = \frac{2n}{2n^2}\sum_i d^2_i - \frac{1}{n^2}\sum_{i,j}d_id_j$$
+$$\implies D(y,y^*) = \frac{1}{n}\sum_i d^2_i - \frac{1}{n^2}(\sum_i d_i)^2$$
+
 
 
 
