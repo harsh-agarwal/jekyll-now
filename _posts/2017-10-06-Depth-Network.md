@@ -52,6 +52,25 @@ Again, as the paper says:
 
 >The last formulation relates the error metric to the original $l_2$ error, but with an additional term, $-\frac{1}{n^2}\sum_{i,j}d_id_j$ , that credits mistakes if they are in the same direction and penalizes them if they oppose. Thus, an imperfect prediction will have lower error when its mistakes are consistent with one another. The final equation rewrites the formulation so as to perform the operation in a linear-time computation.
 
+The actual training loss that has been used for training is as follows: 
+
+$$ L(y,y^*) = \frac{1}{n}\sum_i d^2_i - \frac{\lambda}{n^2}(\sum_i d_i)2 $$
+
+$\lambda$ is our weight for the scale invariant term. Using $\lambda = 0$ we essentially get L2 loss and putting $lambda = 1$ makes it completely scale invariant. We in our experiments would be using $\lambda = 0.5$
+
+So we have established the Eigen's loss and why did we decide to go for it! 
+
+The project can be found at ___________________ (put the link here)
+
+Results ...... We need to see if we can generate some results from Saroj 
+
+TO be COMPLETED! 
+
+Cheers,
+
+Harsh Agarwal 
+
+
 
 
 
