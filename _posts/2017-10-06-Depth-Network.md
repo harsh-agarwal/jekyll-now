@@ -56,7 +56,7 @@ The actual training loss that has been used for training is as follows:
 
 $$ L(y,y^*) = \frac{1}{n}\sum_i d^2_i - \frac{\lambda}{n^2}(\sum_i d_i)2 $$
 
-$\lambda$ is our weight for the scale invariant term. Using $\lambda = 0$ we essentially get L2 loss and putting $lambda = 1$ makes it completely scale invariant. We in our experiments would be using $\lambda = 0.5$
+$\lambda$ is our weight for the scale invariant term. Using $\lambda = 0$ we essentially get L2 loss and putting $\lambda = 1$ makes it completely scale invariant. We in our experiments would be using $\lambda = 0.5$
 
 So we have established the Eigen's loss and why did we decide to go for it! 
 
