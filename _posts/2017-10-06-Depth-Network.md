@@ -31,8 +31,14 @@ The equivalent form of the above loss function can be thought of as:
 
 $$D(y,y^*) = \frac{1}{2n^2}\sum_{i,j}((\log y_i - \log y_j)-(\log y^*_i -\log y^*_j))^2$$
 
-using $$d_i = \log y_i - \log y^*_i$$ to be the difference between the prediction and the ground truth at pixel $$i$$ we can write:
+Quoting lines from the paper:
 
+> The above formulation expresses the error by comparing relationships between pairs of pixels i, j in the output: to
+have low error, each pair of pixels in the prediction must differ in depth by an amount similar to that of the corresponding pair in the ground truth. 
+
+Makes sense? Isn't it? This loss becomes scale-invariant in nature! Magical properties of $\log$ you see ;)
+
+Now, using $$d_i = \log y_i - \log y^*_i$$ to be the difference between the prediction and the ground truth at pixel $$i$$ we can write:
 
 $$D(y,y^*) = \frac{1}{2n^2}\sum_{i,j}(d_i - d_j)^2$$
 $$\implies D(y,y^*) = \frac{1}{2n^2}\sum_{i,j}(d^2_i + d^2_j - 2d_id_j)$$
@@ -41,6 +47,12 @@ $$\implies D(y,y^*) = \frac{1}{2n^2}\sum_{i}(nd^2_i + \sum_jd^2_j - \sum_j2d_id_
 $$\implies D(y,y^*) = \frac{1}{2n^2}(n\sum_{i}d^2_i + n\sum_jd^2_j - \sum_i\sum_j2d_id_j)$$
 $$\implies D(y,y^*) = \frac{2n}{2n^2}\sum_i d^2_i - \frac{1}{n^2}\sum_{i,j}d_id_j$$
 $$\implies D(y,y^*) = \frac{1}{n}\sum_i d^2_i - \frac{1}{n^2}(\sum_i d_i)^2$$
+
+Again, as the paper says:
+
+>relates the metric to the original $l_2$ error, but with an additional term, $-\frac{1}{n^2}\sum_{i,j}d_id_j$ , that credits mistakes if they are in the same direction and penalizes them if they oppose. Thus, an imperfect prediction will have lower error when its mistakes are consistent with one another. The final equation rewrites this as a linear-time computation.
+
+
 
 
 
