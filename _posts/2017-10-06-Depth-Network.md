@@ -3,6 +3,10 @@ layout: post
 title : A U-Net kind of a Depth Net!
 ---
 
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 In the previous post we established the idea that how can we estimate the pose from src to target in an unsupervised manner, if we are given a reasonable depth map and decent depth features of the target image. 
 
 In this post we would try focussing upon getting a depth network which could be used for pose estimation as well. 
@@ -18,17 +22,7 @@ And we wanted to work on NYUDv2. So, as Ravi's network (it is kind of a traditio
 ## Eigen's Loss 
 
 In NIPS 2014 [Depth Map Prediction from a Single Image using a Multi-Scale Deep Network](https://papers.nips.cc/paper/5539-depth-map-prediction-from-a-single-image-using-a-multi-scale-deep-network.pdf) by Eigen et al. proposed a scale invariant error. The following was the loss function proposed:    
-{ % raw %} 
-$$ \forall x \in R $$ 
-{ % endraw % }
 
-{% raw %}
-  $$a^2 + b^2 = c^2$$ --> note that all equations between these tags will not need escaping! 
- {% endraw %}
 
-$$ D(y,y^*) = \frac{1}{2n}\sum_{i=1}^{n}(\log(y_i) - \log(y^*_i) + \alpha(y,y^*))^2 $$
-
-\[D(y,y^*) = \frac{1}{2n}\sum_{i=1}^{n}(\log(y_i) - \log(y^*_i) + \alpha(y,y^*))^2\]
-<script type="text/javascript" src="http://www.hostmath.com/Math/MathJax.js?config=OK"></script>
 
 
