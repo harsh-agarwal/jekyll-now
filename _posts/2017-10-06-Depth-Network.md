@@ -12,7 +12,8 @@ In the previous post we established the idea that how can we estimate the pose f
 
 In this post we would try focussing on getting a depth network which could be used for this task. 
 
-Ravi Garg in his work had used a network architecture, for single view depth estimation, trained on KITTI dataset using stereo pairs. Please look here for [visualising Ravi's network] (http://ethereon.github.io/netscope/#/gist/14749ba6af863967e0e417a7be78485a). On using this architecture as it is, we were not able to train it reasonably for NYUDv2. Most of the papers currently except that of Eigen's primarily focus on outdoor datasets like KITTI, CityScapes and so on. Training for pose and depth on NYUDv2 seems like a challenge. Why? My key observations are: 
+Ravi Garg in his work had used a network architecture, for single view depth estimation, trained on KITTI dataset using stereo pairs. Please look here for 
+[visualising Ravi's network](http://ethereon.github.io/netscope/#/gist/14749ba6af863967e0e417a7be78485a). On using this architecture as it is, we were not able to train it reasonably for NYUDv2. Most of the papers currently except that of Eigen's primarily focus on outdoor datasets like KITTI, CityScapes and so on. Training for pose and depth on NYUDv2 seems like a challenge. Why? My key observations are: 
 
 - **Diversity** : It might be easy to learn outdoor data sets, as there is less diversity. As in all the roads, more or less  look the same. If you are travelling through the city, you may not expect that the scene changes so drastically that the network feels lost. This is one point pointed out by even Elon Musk in his TED! On the other hand just imagine you learned the structure of a study room, now you go to a different room, the structure can be so different that you get confused thinking if it is even a study room at all! And NYUDv2 on keenly observing has too many images but the variations between them aren't much. 
 
