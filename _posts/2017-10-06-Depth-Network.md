@@ -2,6 +2,7 @@
 layout: post
 title : A U-Net kind of a Depth Net!
 ---
+A description of the depth network that we worked on in Adelaide!  
 
 <script type="text/javascript" async
   src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
