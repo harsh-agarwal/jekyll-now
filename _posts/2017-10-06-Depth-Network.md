@@ -1,6 +1,7 @@
 ---
 layout: post
 title : A U-Net kind of a Depth Net!
+comments: true 
 ---
 A description of the depth network that we worked on in Adelaide!  
 
