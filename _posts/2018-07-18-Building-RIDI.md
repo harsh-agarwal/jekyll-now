@@ -2,6 +2,7 @@
 layout: post
 title : Building and working with RIDI: Robust IMU Double Integration for Localisation!
 ---
+
 As a part of my first project at CMU I was asked to verify the perks of using the implementaion of Yang et al. [RIDI: Robust IMU Double Integration](https://arxiv.org/abs/1712.09004) for robust localisation. The method might look mathematically too involved as we look at the paper for the very first time, however, the work is revolutionary in the aspect that it uses IMU data, which in comparison to vision based inputs comsume negligible battery and resources and can be processed faster as well! 
 
 So there we see, a game changing revolutionary idea coming into play using classical machine learning and simplified data.
