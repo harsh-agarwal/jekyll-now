@@ -36,6 +36,12 @@ In my college I used to run a small esoteric group called DeepLearningIsLife to 
 
 We used to work under the supervision of [Dr. K.V. Srinivas](https://sites.google.com/site/kvsrinivas/). 
 
+### Life to me! 
+
+Whenever I am free, I belive there is a different version of me altogether that's less of a scientist and more of a philosopher!  
+
+My interests include: reading books, watching movies, making movies, writing scripts and reviews for films and theatre and talking! I am also keen on pursuing music! We had made a short film [Stopping by Woods | Large Short Film | IIT (BHU)](https://www.youtube.com/watch?v=Uy_3XKqsJZk) and some random videos as a member of the [Film & Media Council, IIT (BHU) Varanasi](https://www.youtube.com/channel/UCt4-7kmQaPEZzPLil4RNRCw). Have a look!
+
 In Banares I was also trying to work on a social venture called Banares Dialogues along with Mr. Anupam Raghuvanshi, that concerns with the development of global youth dialogue. The focus was on Education System in India. We felt that somewhere down the line in the quest towards becoming successful we tend to lose our passion for developing life skills like creativity, communication and so on! Any suggestions in this regard please feel free to mail, either Anupam Sir or me! :)
 
 [Harsh Agarwal](mailto:harshaga@andrew.cmu.edu) 
