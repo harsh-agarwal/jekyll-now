@@ -36,6 +36,8 @@ In my college I used to run a small esoteric group called DeepLearningIsLife to 
 
 We used to work under the supervision of [Dr. K.V. Srinivas](https://sites.google.com/site/kvsrinivas/). 
 
+Prior to that, I have worked at IISc under [Prof. R. Venkatesh Babu](http://www.serc.iisc.ernet.in/~venky/) and Australian Centre for Robotic Vision under [Prof. Ian Reid](https://cs.adelaide.edu.au/~ianr/). These two internships form the core of the reserach work that I continued doing at later stages! 
+
 ### Life to me! 
 
 Whenever I am free, I belive there is a different version of me altogether that's less of a scientist and more of a philosopher! 
