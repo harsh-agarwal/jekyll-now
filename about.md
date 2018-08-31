@@ -32,7 +32,7 @@ I run a small group of esoteric people called DeepLearningIsLife in my campus to
 - [Deeksha Kaurav](mailto:deeksha.kaurav.mat15@itbhu.ac.in)
 - [Maneeshita Sharma](mailto:maneeshita.sharma.mat15@itbhu.ac.in)
 - [Shubham Gautam](mailto:shubham.gautam.mat15@itbhu.ac.in) 
-- [Shivam Kalra](mailto:shivam.kalra.mat15@itbhu.ac.in)
+- [Shivam Kalra](mailto:shivam.kalra.mat15@itbhu.ac.in) 
 
 We work under the supervision of [Dr. K.V. Srinivas](https://sites.google.com/site/kvsrinivas/). 
 
