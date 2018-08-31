@@ -11,12 +11,13 @@ I completed my Bachelors in Electrical Engineering from IIT BHU Varanasi. My sta
 By profession, I am a researcher and an entrepreneur in making. I work in the field of Robotics and Machine Learning, trying to make machines intelligent, and contributing my teeny-tiny bit to the cognitive shift that seems to occur in the upcoming era. For my professional interests, have a look at my LinkedIn Profile.
 
 
-Feel free to conatct me if you have anything in mind that you feel is worth sharing and can have a larger impact on the universe! One of favourite quotes are: 
+Feel free to conatct me if you have anything in mind that you feel is worth sharing and can have a larger impact on the universe! One of my all time favourite quote is: 
 
->Talent hits a target no one else can hit, however, a genius hits a target no one else can see!
-Here's to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They're not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can't do is ignore them. Because they change things. They push the human race forward. And while some may see them as the crazy ones, we see genius. Because the people who are crazy enough to think they can change the world, are the ones who do.
+"Talent hits a target no one else can hit, however, a genius hits a target no one else can see!
 
->-Arthur Schopenhauer and Steve Jobs
+Here's to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They're not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can't do is ignore them. Because they change things. They push the human race forward. And while some may see them as the crazy ones, we see genius. Because the people who are crazy enough to think they can change the world, are the ones who do."
+
+-Arthur Schopenhauer and Steve Jobs
 
 Cheers! 
 
