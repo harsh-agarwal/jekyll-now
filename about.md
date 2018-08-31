@@ -2,8 +2,26 @@
 layout: page
 permalink: /about/
 ---
+Hi,
 
-My name is Harsh and I am a final year student pursuing Electrical Engineering at Indian Institute of Technology, Varanasi. I am a researcher, wanna be entrepreneur, a cinephile, a voracious reader, musician, writer, gregarious, a foodie ;) 
+My name is Harsh. Different people call me by different names; some say Bunny, some say Avi, but most people call me crazy!
+
+I completed my Bachelors in Electrical Engineering from IIT BHU Varanasi. My stay and journey at Varanasi was one of the most beautiful experience I could ever have or gather in my lifetime! I started living in a place where people decide to die! Kashi :)
+
+By profession, I am a researcher and an entrepreneur in making. I work in the field of Robotics and Machine Learning, trying to make machines intelligent, and contributing my teeny-tiny bit to the cognitive shift that seems to occur in the upcoming era. For my professional interests, have a look at my LinkedIn Profile.
+
+Currently, I am working on Cognitive Assistance at Carnegie Mellon as a research Assistant and a Masters Student in Robotics. Primarily my work is based on development of approaches for efficient and robust localisation in SLAM for mobile devices.
+
+My other interests include: reading books, watching movies, making movies, writing scripts and reviews for films and theatre. I am also keen on pursuing music! We had made a short film [Stopping by Woods | Large Short Film | IIT (BHU)](https://www.youtube.com/watch?v=Uy_3XKqsJZk) and some random videos as a member of the [Film & Media Council, IIT (BHU) Varanasi](https://www.youtube.com/channel/UCt4-7kmQaPEZzPLil4RNRCw). Have a look!
+
+Feel free to conatct me if you have anything in mind that you feel is worth sharing and can have a larger impact on the universe! One of favourite quotes are: 
+
+> Talent hits a target no one else can hit, however, a genius hits a target no one else can see!
+Here's to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They're not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can't do is ignore them. Because they change things. They push the human race forward. And while some may see them as the crazy ones, we see genius. Because the people who are crazy enough to think they can change the world, are the ones who do.
+
+>-Arthur Schopenhauer and Steve Jobs
+
+Cheers! 
 
 ### A bit more! 
 
