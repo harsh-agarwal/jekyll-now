@@ -192,7 +192,7 @@ $$ y_{i}(w^T\phi(x_{i})+b) \geqslant 1 -\xi_{i} \textrm{ and } \xi_{i} \geqslant
 
 where C is the capacity constant, w is the vector of coefficients, b is a constant, and  represents parameters for handling nonseparable data (inputs). The index i labels the N training cases. Note that  represents the class labels and xi represents the independent variables. The kernel  is used to transform data from the input (independent) to the feature space. It should be noted that the larger the C, the more the error is penalized. Thus, C should be chosen with care to avoid over fitting.
 
-https://gist.github.com/harsh-agarwal/28e7c95f67cc3969a2042ed4e65cf17f 
+{% gist 28e7c95f67cc3969a2042ed4e65cf17f %}
 
 The above is a fshionable code snippet! 
 
