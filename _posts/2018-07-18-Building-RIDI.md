@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title : Building RIDI! 
 ---
 
@@ -119,6 +119,98 @@ If you are lucky, OpenMesh will install with the above commands. However, there 
 One problem that I had faced was it was linking c++98 for some reason so I had to explicitly specify that in the cmake using `cmake .. -DCMAKE_CXX_FLAGS=-std=c++11`
 
 *Please do refer to the flags that can be passed to cmake very judiciously in case you are not able to build OpenMesh!*  
+
+
+## Going through the code 
+
+Let's have a look at the geometry.py file. 
+
+### rotate_vector function 
+
+Rotates a 3D vectors based on the orientation of the quaternions. 
+
+```python
+import math
+
+import numpy as np
+import quaternion
+
+
+def rotate_vector(input, orientation):
+    """
+    Rotate 3D vectors with quaternions.
+    :param input: Nx3 array containing N 3D vectors.
+    :param orientation: Nx4 array containing N quaternions.
+    :return: Nx3 array containing rotated vectors.
+    """
+    output = np.empty(input.shape, dtype=float)
+    for i in range(input.shape[0]):
+        q = quaternion.quaternion(*orientation[i])
+        output[i] = (q * quaternion.quaternion(1.0, *input[i]) * q.conj()).vec
+    return output
+```
+
+### Obtaining the Rotation matrix from the two vectors.  
+
+```python
+
+def rotation_matrix_from_two_vectors(v1, v2):
+    """
+    Compute 3x3 rotation matrix between two vectors using Rodrigues rotation formula. Two vectors need not be
+    normalized.
+    https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula
+    
+    :param v1: starting vector
+    :param v2: ending vector
+    :return 3x3 rotation matrix
+    """
+    v1 /= np.linalg.norm(v1)
+    v2 /= np.linalg.norm(v2)
+    theta = np.dot(v1, v2)
+    if theta == 1:
+        return np.identity(3)
+    if theta == -1:
+        raise ValueError
+    k = np.cross(v1, v2)
+    k /= np.linalg.norm(k)
+    K = np.matrix([[0, -k[2], k[1]], [k[2], 0, -k[0]], [-k[1], k[0], 0]])
+    return np.identity(3) + math.sqrt(1 - theta * theta) * K + np.dot((1 - theta) * K * K, v1)
+
+```
+
+### Details of the SVM that RIDI uses 
+
+The type of SVM is SVN_C_SVC that is C-Support Vector Classification. For an n-class classification($n \geqslant 2$) allows an imperfect seperation of classes with penalty multiplier C for outliers. 
+
+For this type of SVM, training involves the minimization of the error function:
+$$ \frac{1}{2} w^T w + C\sum_{i=1}^{i=N} \xi_{i} $$
+
+subject to the constraints:
+$$ y_{i}(w^T\phi(x_{i})+b) \geqslant 1 -\xi_{i} \textrm{ and } \xi_{i} \geqslant 0, i=1,2,3...N $$
+
+where C is the capacity constant, w is the vector of coefficients, b is a constant, and  represents parameters for handling nonseparable data (inputs). The index i labels the N training cases. Note that  represents the class labels and xi represents the independent variables. The kernel  is used to transform data from the input (independent) to the feature space. It should be noted that the larger the C, the more the error is penalized. Thus, C should be chosen with care to avoid over fitting.
+
+```python
+
+class SVMOption:
+    """
+    This class represents options necessary for creating a SVM mode. The script relies on the ML module of OpenCV.
+    Please refer to the OpenCV documentation for the meaning of each term:
+    https://docs.opencv.org/3.2.0/d1/d2d/classcv_1_1ml_1_1SVM.html
+    """
+    def __init__(self, svm_type=cv2.ml.SVM_C_SVC, kernel_type=cv2.ml.SVM_RBF, degree=1,
+                 gamma=1, C=5, e=0.01, max_iter=10000):
+        # 'SVM' for classification or 'SVR' for regression
+        self.svm_type = svm_type
+        self.kernel_type = kernel_type
+        self.degree = degree
+        self.gamma = gamma
+        self.C = C
+        self.e = e
+        self.max_iter = max_iter
+        self.kParams__ = 7
+
+```
 
 
 
