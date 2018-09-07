@@ -131,7 +131,7 @@ Let's have a look at the geometry.py file.
 
 Rotates a 3D vectors based on the orientation of the quaternions. 
 
-```python
+``` python
 import math
 
 import numpy as np
@@ -154,7 +154,7 @@ def rotate_vector(input, orientation):
 
 ### Obtaining the Rotation matrix from the two vectors.  
 
-```python
+``` python
 
 def rotation_matrix_from_two_vectors(v1, v2):
     """
