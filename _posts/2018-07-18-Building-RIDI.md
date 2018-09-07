@@ -5,6 +5,8 @@ title : Building RIDI!
 
 As a part of my first project at CMU I was asked to verify the perks of using the implementaion of Yang et al. [RIDI: Robust IMU Double Integration](https://arxiv.org/abs/1712.09004) for robust localisation. The method might look mathematically too involved as we look at the paper for the very first time, however, the work is revolutionary in the aspect that it uses IMU data, which in comparison to vision based inputs comsume negligible battery and resources and can be processed faster as well! 
 
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+
 So there we see, a game changing revolutionary idea coming into play using classical machine learning and simplified data.
 
 As I saw there weren't specific blog posts written to work around with this repository I decided to write one, for anyone who is trying to formulate thsi work in future :) 
