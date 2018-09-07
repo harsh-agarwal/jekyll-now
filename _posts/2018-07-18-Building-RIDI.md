@@ -192,27 +192,9 @@ $$ y_{i}(w^T\phi(x_{i})+b) \geqslant 1 -\xi_{i} \textrm{ and } \xi_{i} \geqslant
 
 where C is the capacity constant, w is the vector of coefficients, b is a constant, and  represents parameters for handling nonseparable data (inputs). The index i labels the N training cases. Note that  represents the class labels and xi represents the independent variables. The kernel  is used to transform data from the input (independent) to the feature space. It should be noted that the larger the C, the more the error is penalized. Thus, C should be chosen with care to avoid over fitting.
 
-```python
+https://gist.github.com/harsh-agarwal/28e7c95f67cc3969a2042ed4e65cf17f 
 
-class SVMOption:
-    """
-    This class represents options necessary for creating a SVM mode. The script relies on the ML module of OpenCV.
-    Please refer to the OpenCV documentation for the meaning of each term:
-    https://docs.opencv.org/3.2.0/d1/d2d/classcv_1_1ml_1_1SVM.html
-    """
-    def __init__(self, svm_type=cv2.ml.SVM_C_SVC, kernel_type=cv2.ml.SVM_RBF, degree=1,
-                 gamma=1, C=5, e=0.01, max_iter=10000):
-        # 'SVM' for classification or 'SVR' for regression
-        self.svm_type = svm_type
-        self.kernel_type = kernel_type
-        self.degree = degree
-        self.gamma = gamma
-        self.C = C
-        self.e = e
-        self.max_iter = max_iter
-        self.kParams__ = 7
-
-```
+The above is a fshionable code snippet! 
 
 
 
