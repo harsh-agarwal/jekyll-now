@@ -194,7 +194,7 @@ where C is the capacity constant, w is the vector of coefficients, b is a consta
 
 {% gist 28e7c95f67cc3969a2042ed4e65cf17f %}
 
-<script src="https://gist.github.com/harsh-agarwal/28e7c95f67cc3969a2042ed4e65cf17f.js"></script>
+<script src="https://gist.github.com/harsh-agarwal/28e7c95f67cc3969a2042ed4e65cf17f.js"></script> 
 
 The above is a fshionable code snippet! 
 
